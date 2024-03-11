@@ -7,9 +7,9 @@ import TSTE3
 
 # criação das listas
 # Produto: quantidade, preço, código do produto
-produtos_tecnologia = {"CPU": (30, 500), "GPU": (25, 1500), "SSD": (68, 600), "HDD": (33, 300), "Monitor": (21, 1200),
-                      "Gabinete": (33, 250), "MB": (75, 300), "SubWoofer": (58, 5000), "TV": (12, 2500),
-                      "Fonte": (89, 101), "RAM": (45, 300), "Cooler": (150, 150)}
+produtos_tecnologia = {"CPU": (30, 500), "GPU": (25, 1500), "SSD": (68, 600), "HDD": (33, 300), "MONITOR": (21, 1200),
+                      "GABINETE": (33, 250), "MB": (75, 300), "SUBWOOFER": (58, 5000), "TV": (12, 2500),
+                      "FONTE": (89, 101), "RAM": (45, 300), "COOLER": (150, 150)}
 
 
 # O código precisa ter: menu de direção, listagem de quantidade, listagem de preços de todos os produtos
