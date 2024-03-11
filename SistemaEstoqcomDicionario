@@ -1,0 +1,122 @@
+Menu
+
+import TSTE
+import TSTE2
+import TSTE3
+
+
+# criação das listas
+# Produto: quantidade, preço, código do produto
+produtos_tecnologia = {"CPU": (30, 500), "GPU": (25, 1500), "SSD": (68, 600), "HDD": (33, 300), "Monitor": (21, 1200),
+                      "Gabinete": (33, 250), "MB": (75, 300), "SubWoofer": (58, 5000), "TV": (12, 2500),
+                      "Fonte": (89, 101), "RAM": (45, 300), "Cooler": (150, 150)}
+
+
+# O código precisa ter: menu de direção, listagem de quantidade, listagem de preços de todos os produtos
+# Depois listagem de quantida por limite de minimo, listagem de preço por busca.
+
+
+# Função de MENU
+def menu():
+   while True:
+       print("\nDigite Para Onde Gostaria de Ir")
+       print("1. Para Adicionar ou Alterar um Item")
+       print("2. Para Listar a Quantidade Atual em Estoque")
+       print("3. Buscar Item")
+       print("4. Para Voltar")
+
+
+       opcao = input("---->")
+
+
+       # Adicionando itens
+       if opcao == "1":
+           adicionaritem = TSTE.additem()
+           print(adicionaritem)
+
+
+       # Exibindo os produtos, suas quantidades e preços
+       elif opcao == "2":
+           estoqueatual = TSTE3.showlist()
+           print(estoqueatual)
+
+
+       elif opcao == "3":
+           TSTE2.buscador()
+
+
+       else:
+           return True
+=======================================================================================================================================================================================
+Adiconar ou Alterar Item
+
+import Menu
+def additem():
+   # cirando as variáveis input
+   item = input("Digite o item: ")
+   item = item.upper()
+   quantidade = input("Digite quantidade: ")
+   preco_unitario = int(input("Digite o preço unitário do produto: "))
+
+   for (produto, valores) in Menu.produtos_tecnologia.items():
+      if item.upper() == produto:
+         # Modificando os valores existentes
+         Menu.produtos_tecnologia[item] = (quantidade, preco_unitario)
+         print("\nProduto Atualizado:\n")
+         print("{:<10} {:<10} {}".format("Produto", "Quantidade", "Preço"))
+         print("-" * 30)
+         print("{:<10} {:<10} R${:.2f}".format(item, quantidade, preco_unitario))
+         return
+
+   # Adicionando o novo par chave-valor ao dicionário
+   Menu.produtos_tecnologia[item] = quantidade, preco_unitario
+   print("\nProdutos Adicionado:\n")
+   print("{:<10} {:<10} {}".format("Produto", "Quantidade", "Preço"))
+   print("-" * 30)
+   print("{:<10} {:<10} R${:.2f}".format(item, quantidade, preco_unitario))
+=======================================================================================================================================================================================
+Buscador de Iens
+
+import Menu
+import TSTE
+
+
+
+
+def buscador():
+   busca = input("Digite o Item Procurado: ").casefold()
+   for produto, valores in Menu.produtos_tecnologia.items():
+       quantidade, preco = valores
+       if produto.casefold() == busca:
+           print("Produto:", produto)
+           print("Preço: R${:.2f}".format(preco))
+           print("Quantidade:", quantidade)
+           return
+
+
+   else:
+       TSTE.additem()
+
+# OU
+# produto_procurado = input("Digite o produto:")
+# produto_procurado = produto_procurado.lower()
+# if produto_procurado in precos:
+#    preco, quantos = precos[produto_procurado]
+
+#    print(f"Produto: {produto_procurado}, Preço: R${preco}, quantos tem: {quantos}")
+# else:
+#    print("Produto não encontrado, tente novamente")
+=======================================================================================================================================================================================
+Show List
+
+import Menu
+
+
+def showlist():
+   print("\nEstoque Atual:\n")
+   print("{:<10} {:<10} {}".format("Produto", "Quantidade", "Preço"))
+   print("-" * 30)
+   for produto, valores in Menu.produtos_tecnologia.items():# como a lista é um Dicionario tem que declarar a Chave com o valroes com um só para depois declarar o valor de cada um
+       quantidade, preco = valores # desse jeito faz o programa assumir que sempre vai ter dois valores dentro das chaves para mostrar
+       print("{:<10} {:<10} R${:.2f}".format(produto, quantidade, preco))
+=======================================================================================================================================================================================
