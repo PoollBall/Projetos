@@ -1,3 +1,5 @@
+# install bs4
+# install lxml
 import os
 import csv
 import requests
