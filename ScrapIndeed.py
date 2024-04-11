@@ -59,3 +59,4 @@ with open(file_path, mode='w', newline='', encoding='utf-8') as file:
 
 print(f'Jobs data written to <{file_name}> successfully.')
 
+# não funciona mais, block do indeed
